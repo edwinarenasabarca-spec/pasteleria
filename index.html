@@ -145,7 +145,7 @@
             pointer-events: auto;
         }
 
-        /* --- HERO Y SLIDER RESPONSIVO (OPTIMIZADO PARA LAPTOP) --- */
+        /* --- HERO Y SLIDER RESPONSIVO (IMÁGENES MÁS GRANDES) --- */
         #hero-section {
             background: radial-gradient(circle at 68% 48%, rgba(235, 198, 120, 0.45) 0%, transparent 55%),
                         linear-gradient(115deg, #7A4911 0%, #9E6723 38%, #C69344 74%, #DEB668 100%);
@@ -158,7 +158,6 @@
             justify-content: space-between;
         }
 
-        /* En laptops y escritorio limitamos a 100dvh exactos para que encaje perfecto */
         @media (min-width: 1024px) {
             #hero-section {
                 height: 100dvh;
@@ -169,8 +168,8 @@
         .slider-container {
             position: relative;
             width: 100%;
-            /* Se adapta a la altura de la pantalla (vh) para no desbordar en laptops */
-            height: clamp(230px, 46vh, 420px);
+            /* Aumentado para dar mayor protagonismo al producto */
+            height: clamp(290px, 56vh, 520px);
             perspective: 1000px;
             touch-action: pan-y;
         }
@@ -179,51 +178,51 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            /* Proporción controlada por la altura disponible */
-            width: clamp(170px, 34vh, 310px);
-            height: clamp(220px, 44vh, 400px);
+            /* Tamaño ampliado considerablemente */
+            width: clamp(230px, 44vh, 410px);
+            height: clamp(280px, 54vh, 510px);
             transition: all 0.75s cubic-bezier(0.25, 1, 0.5, 1);
             transform-origin: center center;
             cursor: pointer;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.32));
+            filter: drop-shadow(0 24px 34px rgba(0,0,0,0.36));
             will-change: transform, opacity;
             user-select: none;
         }
 
         /* Posiciones en Desktop / Laptop */
         .slide-item.pos-0 {
-            transform: translate(-50%, -50%) scale(1);
+            transform: translate(-55%, -50%) scale(1.05);
             z-index: 3;
             opacity: 1;
             cursor: default;
         }
         .slide-item.pos-1 {
-            transform: translate(15%, -50%) scale(0.68);
+            transform: translate(14%, -50%) scale(0.70);
             z-index: 2;
             opacity: 0.85;
         }
         .slide-item.pos-2 {
-            transform: translate(62%, -50%) scale(0.45);
+            transform: translate(60%, -50%) scale(0.46);
             z-index: 1;
             opacity: 0.55;
         }
 
-        /* Regla especial para pantallas de Laptop con poca altura (ej. 1366x768 o 1920x1080 al 125% de escala) */
+        /* Regla especial para pantallas de Laptop con poca altura (ej. 1366x768 o 1080p al 125%) */
         @media (min-width: 1024px) and (max-height: 820px) {
             #navbar {
                 padding-top: 0.75rem;
                 padding-bottom: 0.75rem;
             }
             .hero-main {
-                padding-top: 4.2rem !important;
-                padding-bottom: 0.5rem !important;
+                padding-top: 4rem !important;
+                padding-bottom: 0.25rem !important;
             }
             .slider-container {
-                height: clamp(210px, 42vh, 340px);
+                height: clamp(260px, 52vh, 430px);
             }
             .slide-item {
-                width: clamp(160px, 31vh, 250px);
-                height: clamp(200px, 40vh, 320px);
+                width: clamp(210px, 40vh, 340px);
+                height: clamp(250px, 50vh, 420px);
             }
             #hero-title {
                 font-size: clamp(2.2rem, 4.2vw, 3.25rem) !important;
@@ -238,14 +237,14 @@
         /* Ajustes finos del Slider en Móviles y Tablets Verticales */
         @media (max-width: 1023px) {
             .slider-container {
-                height: clamp(220px, 45vw, 320px);
+                height: clamp(260px, 55vw, 380px);
             }
             .slide-item {
-                width: clamp(165px, 38vw, 240px);
-                height: clamp(210px, 45vw, 300px);
+                width: clamp(205px, 46vw, 300px);
+                height: clamp(250px, 54vw, 365px);
             }
             .slide-item.pos-0 {
-                transform: translate(-55%, -50%) scale(1);
+                transform: translate(-54%, -50%) scale(1.04);
             }
             .slide-item.pos-1 {
                 transform: translate(12%, -50%) scale(0.72);
@@ -260,10 +259,10 @@
 
         @media (max-width: 480px) {
             .slide-item.pos-0 {
-                transform: translate(-52%, -50%) scale(1);
+                transform: translate(-52%, -50%) scale(1.04);
             }
             .slide-item.pos-1 {
-                transform: translate(8%, -50%) scale(0.66);
+                transform: translate(10%, -50%) scale(0.66);
                 opacity: 0.75;
             }
         }
@@ -374,14 +373,13 @@
         #whatsapp-float {
             position: fixed;
             right: 1.25rem;
-            bottom: 4.5rem; /* En el hero se mantiene arriba de las flechas del slider */
+            bottom: 4.5rem;
             z-index: 60;
             transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
                         bottom 0.4s ease;
             will-change: transform, bottom;
         }
 
-        /* Cuando el usuario baja del Hero, se acomoda en la esquina inferior */
         #whatsapp-float.wa-lowered {
             bottom: 1.5rem;
         }
@@ -472,7 +470,7 @@
             </div>
         </nav>
 
-        <!-- Contenido Principal Hero (Padding vertical optimizado para Laptop) -->
+        <!-- Contenido Principal Hero -->
         <main class="hero-main flex-1 flex flex-col lg:flex-row items-center justify-center relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 sm:pt-24 lg:pt-20 pb-4 sm:pb-6 lg:pb-2 gap-4 lg:gap-4">
             
             <!-- Textos dinámicos -->
